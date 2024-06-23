@@ -111,11 +111,7 @@ function ProfilePage() {
                     <MessageModal />
 
                 </div>
-                {/* <MessageModal 
-                userEmail = {userEmail || ''}
-                isOpen = {isMessageModalOpen}
-                onClose = {() => setIsMessageModalOpen(false)}
-                />  */}
+                
                 <div className="flex items-center flex-col gap-y-1">
                     {/* Asignar cada elemento de la lista a las parcelas */}
                     <div className="flex -mb-8">
