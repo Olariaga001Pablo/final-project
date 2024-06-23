@@ -56,9 +56,10 @@ function ProfilePage() {
     
     useEffect(() => {
         const intervalId = setInterval(() => {
-            if (userEmail) {
+            /* if (userEmail) {
                 generarRecursos();
-            }
+            } */
+                generarRecursos();
         }, 60000);
 
         return () => clearInterval(intervalId);
