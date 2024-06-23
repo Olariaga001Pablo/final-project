@@ -19,10 +19,11 @@ function ProfilePage() {
     console.log(user?.fullname);
     const fetchData = async () => {
         try {
-            const response = await axios.get(`/api/recursos`);
+            /* const response = await axios.get(`/api/recursos`); */
+            const response = await axios.get("/api/recursos");
             setUser(response.data);
         } catch (error) {
-            console.error('Error fetching user data:', error);
+            console.error("Error fetching user data:", error);
         } finally {
             setIsLoading(false);
         }
@@ -35,7 +36,7 @@ function ProfilePage() {
     
     const nuevaConstruccion = async (pos: number, edificio: string): Promise<boolean> => {
         try {
-            const response = await axios.post('/api/construirEdificio', {
+            const response = await axios.post("/api/construirEdificio", {
                 email: userEmail,
                 edificio,
                 pos,
@@ -66,7 +67,7 @@ function ProfilePage() {
     }, [userEmail]);
     async function generarRecursos() {
         try {
-                await axios.post('/api/generarRecursos');
+                await axios.post("/api/generarRecursos");
                 await fetchData();
                 console.log("Recursos generados");
         }
