@@ -57,10 +57,10 @@ function ProfilePage() {
     
     useEffect(() => {
         const intervalId = setInterval(() => {
-            /* if (userEmail) {
+            if (userEmail) {
                 generarRecursos();
-            } */
-                generarRecursos();
+            }
+                
         }, 60000);
 
         return () => clearInterval(intervalId);
@@ -112,7 +112,7 @@ function ProfilePage() {
 
                 </div>
                 {/* <MessageModal 
-                userEmail = {userEmail || ""}
+                userEmail = {userEmail || ''}
                 isOpen = {isMessageModalOpen}
                 onClose = {() => setIsMessageModalOpen(false)}
                 />  */}
