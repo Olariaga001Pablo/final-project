@@ -7,18 +7,21 @@ import { options } from "../auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
 import { Recurso, UserData } from "@/interfaces/tipos";
 
+
+
 export async function POST() {
     try {
         await connectDB();
         const session = await getServerSession(options);
-
+       
+        
         if (!session || !session.user) {
             return NextResponse.json(
                 { message: "User not found" },
                 { status: 404 }
             );
         }
-
+        
         const userSession = session?.user as UserData;
         // const email = user.email;
         const id = userSession._id;
