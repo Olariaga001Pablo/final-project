@@ -3,14 +3,14 @@ import { connectDB } from "@/libs/mongodb";
 import { getServerSession } from "next-auth";
 import User from "@/models/user";
 import mongoose from "mongoose";
-import { options } from "../auth/[...nextauth]/route";
+import { option } from "../auth/[...nextauth]/route";
 import { NextResponse } from "next/server";
 import { Recurso, UserData } from "@/interfaces/tipos";
 
 export async function POST() {
     try {
         await connectDB();
-        const session = await getServerSession(options);
+        const session = await getServerSession(option);
 
         if (!session || !session.user) {
             return NextResponse.json(

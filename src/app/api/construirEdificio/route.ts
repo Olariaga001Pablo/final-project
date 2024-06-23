@@ -5,13 +5,13 @@ import mongoose from "mongoose";
 import { Recurso, UserData } from "@/interfaces/tipos";
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
-import { options } from "../auth/[...nextauth]/route";
+import { option } from "../auth/[...nextauth]/route";
 
 export async function POST(request: Request) {
     try {
         await connectDB();
         const { edificio, pos } = await request.json();
-        const session = await getServerSession(options);
+        const session = await getServerSession(option);
 
     if(!session){
       return NextResponse.json(
