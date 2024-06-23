@@ -30,8 +30,8 @@ export async function GET() {
         }
         // Obtener los mensajes
         const messages = await Message.find({ _id: { $in: user.messages } })
-            .populate('sender', 'fullname') // Solo fullname de sender
-            .populate('receiver', 'fullname'); // Solo fullname de receiver
+            .populate("sender", "fullname") // Solo fullname de sender
+            .populate("receiver", "fullname"); // Solo fullname de receiver
         // console.log(messages);
         // Procesar los mensajes
         const mensajesProcesados = messages.map(message => {

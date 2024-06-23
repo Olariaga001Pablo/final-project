@@ -28,7 +28,7 @@ const config: Config = {
         customGrayColor: "#262525"
       },
       borderWidth: {
-        '12': '12px',
+        "12": "12px",
       },
     },
   },

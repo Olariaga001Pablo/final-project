@@ -1,10 +1,10 @@
 import Providers from "./providers";
 import "./globals.css";
-import {Medula_One} from '@next/font/google' 
+import {Medula_One} from "@next/font/google" 
 
 const medulaone = Medula_One({
-    subsets: ['latin'],
-    weight: '400',
+    subsets: ["latin"],
+    weight: "400",
 })
 
 export const metadata = {

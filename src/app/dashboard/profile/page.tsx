@@ -112,7 +112,7 @@ function ProfilePage() {
 
                 </div>
                 {/* <MessageModal 
-                userEmail = {userEmail || ''}
+                userEmail = {userEmail || ""}
                 isOpen = {isMessageModalOpen}
                 onClose = {() => setIsMessageModalOpen(false)}
                 />  */}

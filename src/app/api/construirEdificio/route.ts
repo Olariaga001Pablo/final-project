@@ -30,8 +30,8 @@ export async function POST(request: Request) {
               { status: 404 }
             );
           }
-        // Verificar que 'pos' sea un número válido
-        if (typeof pos !== 'number' || pos < 0 || pos > user.edificios.length) {
+        // Verificar que "pos" sea un número válido
+        if (typeof pos !== "number" || pos < 0 || pos > user.edificios.length) {
             return NextResponse.json({ message: "Invalid position" }, { status: 400 });
         }
 

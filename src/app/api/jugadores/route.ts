@@ -10,7 +10,7 @@ export async function GET() {
     try {
         await connectDB();
         // Obtener todos los usuarios
-        const users = await User.find({}, 'id fullname');
+        const users = await User.find({}, "id fullname");
         // console.log(users);
         // Mapear usuarios para devolver solo `id` y `fullname`
         const usersList = users.map((user: UserData) => ({

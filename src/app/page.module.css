@@ -1,5 +1,5 @@
 .container {
-    background-image: url('fondo-azul.png');
+    background-image: url("fondo-azul.png");
     background-size: cover;
     background-position: center;
     min-height: 100vh; /* Hace que el contenedor cubra toda la pantalla verticalmente */

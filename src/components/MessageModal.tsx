@@ -29,7 +29,7 @@ interface MessageModalProps {
 
 const MessageModal: React.FC<MessageModalProps> = ({ userEmail, isOpen, onClose }) => {
     const [messages, setMessages] = useState<Message[]>([]);
-    const [receiverEmail, setReceiverEmail] = useState('');
+    const [receiverEmail, setReceiverEmail] = useState("');
     const [content, setContent] = useState('');
     const [resources, setResources] = useState({ oro: 0, comida: 0, piedra: 0, madera: 0 });
 
