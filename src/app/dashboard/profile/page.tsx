@@ -32,17 +32,7 @@ function ProfilePage() {
         fetchData();
     }, [userEmail]);
 
-    async function generarRecursos() {
-        try {
-                await axios.post('/api/generarRecursos');
-                await fetchData();
-                console.log("Recursos generados");
-        }
-        catch (error) {
-            // console.log("eeee");
-            console.error(error);
-        }
-    }
+    
     const nuevaConstruccion = async (pos: number, edificio: string): Promise<boolean> => {
         try {
             const response = await axios.post('/api/construirEdificio', {
@@ -63,7 +53,7 @@ function ProfilePage() {
             return false;
         }
     }
-
+    
     useEffect(() => {
         const intervalId = setInterval(() => {
             if (userEmail) {
@@ -73,10 +63,21 @@ function ProfilePage() {
 
         return () => clearInterval(intervalId);
     }, [userEmail]);
+    async function generarRecursos() {
+        try {
+                await axios.post('/api/generarRecursos');
+                await fetchData();
+                console.log("Recursos generados");
+        }
+        catch (error) {
+            // console.log("eeee");
+            console.error(error);
+        }
+    }
     if (isLoading) {
         return <div>Cargando...</div>; // Muestra un estado de carga mientras los datos están siendo obtenidos
     }
-
+    
     return (
         <div>
             <Image
