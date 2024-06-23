@@ -1,10 +1,10 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 const LogoutButton = () => {
     const handleLogout = () => {
-        console.log('Logout button clicked'); // Verifica si se está llamando correctamente al hacer clic
-        window.location.href = 'http://localhost:3000/api/auth/signout';
+        console.log("Logout button clicked"); // Verifica si se está llamando correctamente al hacer clic
+        window.location.href = "http://localhost:3000/api/auth/signout";
     };
 
     return (

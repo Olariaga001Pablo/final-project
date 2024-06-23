@@ -4,8 +4,8 @@ import TabsComponent from "@/components/correo";
 
  // components/MessageModal.tsx
 
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 /*interface Message {
     senderName: string;

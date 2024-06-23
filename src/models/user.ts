@@ -1,4 +1,4 @@
-import mongoose, { Document, Schema } from 'mongoose';
+import mongoose, { Document, Schema } from "mongoose";
 
 // Interfaz para el documento de recurso
 interface Recurso {
@@ -67,26 +67,26 @@ const UserSchema = new Schema<User>({
     },
     recursos: [ResourceSchema],
     edificios: [BuildingSchema],
-    messages: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Message' }]  // Añadir el campo de mensajes
+    messages: [{ type: mongoose.Schema.Types.ObjectId, ref: "Message" }]  // Añadir el campo de mensajes
 });
 
 // Recursos y edificios constantes (vacíos por defecto)
 const constantResources: Recurso[] = [
-    { name: 'oro', quantity: 50 },
-    { name: 'comida', quantity: 50 },
-    { name: 'piedra', quantity: 50 },
-    { name: 'madera', quantity: 50 },
-    { name: 'tropas', quantity: 0 }
+    { name: "oro", quantity: 50 },
+    { name: "comida", quantity: 50 },
+    { name: "piedra", quantity: 50 },
+    { name: "madera", quantity: 50 },
+    { name: "tropas", quantity: 0 }
 ];
 
-const constantBuildings: Edificio[] = Array(19).fill({ name: 'Vacio', level: 1 });
-constantBuildings[9] = { name: 'Urbano', level: 1 };
+const constantBuildings: Edificio[] = Array(19).fill({ name: "Vacio", level: 1 });
+constantBuildings[9] = { name: "Urbano", level: 1 };
 
 // Antes de guardar el usuario, asigna los recursos y edificios constantes
-UserSchema.pre<User>('save', function (next) {
+UserSchema.pre<User>("save", function (next) {
     this.recursos = constantResources.map(resource => ({ ...resource }));
     this.edificios = constantBuildings.map(building => ({ ...building }));
     next();
 });
 
-export default mongoose.models.User || mongoose.model<User>('User', UserSchema);
+export default mongoose.models.User || mongoose.model<User>("User", UserSchema);

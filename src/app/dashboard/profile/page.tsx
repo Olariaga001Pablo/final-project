@@ -1,5 +1,5 @@
 //dashboard/profile/page.tsx
-'use client'
+"use client";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Parcela from "@/components/parcela";

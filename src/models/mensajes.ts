@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document } from "mongoose";
 
 // Interfaz para el documento de recurso
 interface Recurso {
@@ -23,11 +23,11 @@ const ResourceSchema = new Schema<Recurso>({
 
 // Esquema para los mensajes
 const MessageSchema = new Schema<Message>({
-    sender: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
-    receiver: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+    sender: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    receiver: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     content: { type: String, required: true },
     timestamp: { type: Date, default: Date.now },
     recursos: [ResourceSchema]
 });
 
-export default mongoose.models.Message || mongoose.model<Message>('Message', MessageSchema);
+export default mongoose.models.Message || mongoose.model<Message>("Message", MessageSchema);

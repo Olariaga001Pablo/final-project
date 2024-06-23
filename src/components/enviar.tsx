@@ -1,14 +1,14 @@
 //components/enviar.tsx
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { UserData, Recurso } from '@/interfaces/tipos';  // Asegúrate de importar los tipos desde la ubicación correcta
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { UserData, Recurso } from "@/interfaces/tipos";  // Asegúrate de importar los tipos desde la ubicación correcta
 
 const TabOneContent = () => {
     const [receptor, setReceptor] = useState<UserData | null>(null);
-    const [contenido, setContenido] = useState('');
+    const [contenido, setContenido] = useState("");
     const [recursos, setRecursos] = useState<Recurso[]>([]);
-    const [resourceType, setResourceType] = useState<Recurso['name']>('oro');
-    const [resourceQuantity, setResourceQuantity] = useState<number | ''>('');
+    const [resourceType, setResourceType] = useState<Recurso["name"]>("oro");
+    const [resourceQuantity, setResourceQuantity] = useState<number | "">("");
     const [players, setPlayers] = useState<UserData[]>([]);
     const [isOpen, setIsOpen] = useState(false);
     console.log(recursos);
@@ -24,7 +24,7 @@ const TabOneContent = () => {
     // Función para obtener los jugadores desde la API
     const fetchPlayers = async () => {
         try {
-            const response = await fetch('/api/jugadores');
+            const response = await fetch("/api/jugadores");
             const data = await response.json();
             setPlayers(data);
         } catch (error) {
@@ -40,26 +40,26 @@ const TabOneContent = () => {
     const handleAddResource = () => {
         if (resourceType && resourceQuantity) {
             setRecursos([...recursos, { name: resourceType, quantity: resourceQuantity }]);
-            setResourceType('oro');
-            setResourceQuantity('');
+            setResourceType("oro");
+            setResourceQuantity("");
         }
     };
 
     const handleSendMessage = async () => {
         if (receptor) {
             try {
-                await axios.post('/api/mensaje', {
+                await axios.post("/api/mensaje", {
                     receiverId: receptor._id,
                     content: contenido,
                     resources: recursos,
                 });
-                alert('Mensaje enviado correctamente');
+                alert("Mensaje enviado correctamente");
                 setReceptor(null);
-                setContenido('');
+                setContenido("");
                 setRecursos([]);
             } catch (error) {
                 console.error("Error sending message:", error);
-                alert('Hubo un error al enviar el mensaje');
+                alert("Hubo un error al enviar el mensaje");
             }
         } else {
             console.log("Seleccionar un jugador");
@@ -76,7 +76,7 @@ const TabOneContent = () => {
                         onClick={toggleDropdown} 
                         className="w-full px-3 py-2 border rounded-md text-gray-900 bg-white"
                     >
-                        {receptor ? receptor.fullname : 'Selecciona un receptor'}
+                        {receptor ? receptor.fullname : "Selecciona un receptor"}
                     </button>
                     {isOpen && (
                         <ul 
@@ -108,7 +108,7 @@ const TabOneContent = () => {
                 <div className="flex mb-2">
                     <select
                         value={resourceType}
-                        onChange={(e) => setResourceType(e.target.value as Recurso['name'])}
+                        onChange={(e) => setResourceType(e.target.value as Recurso["name"])}
                         className="w-1/2 px-3 py-2 border rounded-md text-gray-900 mr-2"
                     >
                         <option value="oro">Oro</option>

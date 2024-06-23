@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 interface Recurso {
     _id: string;
@@ -15,7 +15,7 @@ interface mensaje {
     recursos: Recurso[];
 }
 
-const TabTwoContent = ({ activeTab = 'tab1'}) => {
+const TabTwoContent = ({ activeTab = "tab1"}) => {
     const [messages, setMessages] = useState<mensaje[]>([]);
 
     const fetchMessages = async () => {
@@ -28,7 +28,7 @@ const TabTwoContent = ({ activeTab = 'tab1'}) => {
     };
 
     useEffect(() => {
-        if (activeTab === 'tab2') {
+        if (activeTab === "tab2") {
             fetchMessages();
         }
     }, [activeTab]);
