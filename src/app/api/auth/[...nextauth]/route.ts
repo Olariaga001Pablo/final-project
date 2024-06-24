@@ -4,8 +4,7 @@ import User from "@/models/user";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
-
-export const options: NextAuthOptions = {
+const OPTIONS: NextAuthOptions = {
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -52,10 +51,11 @@ export const options: NextAuthOptions = {
     },
   },
 };
+// Define function to extract user data (excluding sensitive fields)
 
-const handler = NextAuth(options);
+const handler = NextAuth(OPTIONS);
 
 //linea rara, no se si es necesaria
 //linea 57
 
-export { handler as GET, handler as POST};
+export { handler as GET, handler as POST, OPTIONS};

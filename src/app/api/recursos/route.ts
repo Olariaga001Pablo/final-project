@@ -6,7 +6,7 @@ import { NextRequest, NextResponse } from "next/server";
 import mongoose from "mongoose";
 import { getToken } from "next-auth/jwt";
 import { getServerSession } from "next-auth";
-import { options } from "../auth/[...nextauth]/route";
+import { OPTIONS } from "../auth/[...nextauth]/route";
 import { Recurso, UserData } from "@/interfaces/tipos";
 
 export async function POST(request: Request) {
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
 export async function GET() {
   try {
     await connectDB();
-    const session = await getServerSession(options);
+    const session = await getServerSession(OPTIONS);
 
     if(!session){
       return NextResponse.json(

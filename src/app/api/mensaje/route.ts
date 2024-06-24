@@ -3,14 +3,14 @@ import { connectDB } from "@/libs/mongodb";
 import Message from "@/models/mensajes";
 import User from "@/models/user";
 import { NextResponse } from "next/server";
-import { options } from "../auth/[...nextauth]/route";
+import { OPTIONS } from "../auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import { Recurso, UserData } from "@/interfaces/tipos";
 
 export async function GET() {
     try {
         await connectDB();
-        const session = await getServerSession(options);
+        const session = await getServerSession(OPTIONS);
         if (!session) {
             return NextResponse.json(
                 { message: "User not found" },
@@ -55,7 +55,7 @@ export async function GET() {
 export async function POST(request: Request) {
     await connectDB();
     try {
-        const session = await getServerSession(options);
+        const session = await getServerSession(OPTIONS);
 
         if (!session) {
             return NextResponse.json(
